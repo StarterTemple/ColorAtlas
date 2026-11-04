@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0D13">
+  <meta name="description" data-i18n-content="meta.description" content="Color Atlas — 從一種或多種顏色出發，探索智慧配色、螢幕取色與圖片提色的色彩工作台。">
+  <title data-i18n="meta.title"></title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/colors.js" defer></script>
+  <script src="js/palettes.js" defer></script>
+  <script src="js/strategies.js" defer></script>
+  <script src="js/generator.js" defer></script>
+  <script src="js/extractor.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/landing.js" defer></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2Z"/><path d="m19 2 .7 2.3L22 5l-2.3.7L19 8l-.7-2.3L16 5l2.3-.7L19 2Z"/></symbol>
+    <symbol id="i-pipette" viewBox="0 0 24 24"><path d="m19.4 3.6 1 1a2 2 0 0 1 0 2.8l-3 3 1.6 1.6-2.2 2.2-1.6-1.6-7.6 7.6H4v-3.6l7.6-7.6L10 7.4l2.2-2.2 1.6 1.6 3-3a2 2 0 0 1 2.6-.2Z"/><path d="M4 20h6"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.2 9a7 7 0 0 1 12.3-2L20 12M4 12l1.5 5a7 7 0 0 0 12.3-2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+  </svg>
+  <a href="#studio" class="skip-link" data-i18n="nav.skip"></a>
+  <header class="site-header">
+    <a href="#top" class="site-id" aria-label="Color Atlas" data-i18n-aria-label="nav.home"><span class="site-id-mark">CA</span><span class="site-id-text">COLOR ATLAS<span class="id-badge">/ LAB</span></span></a>
+    <nav class="main-nav" aria-label="主導覽" data-i18n-aria-label="nav.aria"><a href="#studio" data-i18n="nav.studio"></a><a href="#collection" data-i18n="nav.gallery"></a><a href="#about" data-i18n="nav.about"></a></nav>
+    <div class="header-actions"><label class="lang-switch" for="languageSelect"><select id="languageSelect" aria-label="語言 / Language" data-i18n-aria-label="nav.language"></select></label><a class="header-cta" href="#studio"><span data-i18n="nav.explore"></span><svg class="icon"><use href="#i-arrow"/></svg></a></div>
+  </header>
+  <main id="top">
+    <section class="field-hero" aria-labelledby="hero-title" id="intro">
+      <canvas id="fieldCanvas" class="field-canvas" aria-hidden="true"></canvas>
+      <div class="field-mesh" aria-hidden="true"></div>
+      <div class="field-topline"><span data-i18n="field.system"></span><span class="field-topline-extra"> <span class="field-topline-sep">—</span> <span data-i18n="field.live"></span></span><span class="field-coordinate" id="fieldCoordinate">X 00.0 / Y 00.0</span></div>
+      <div class="field-main">
+        <div class="field-content">
+          <p class="field-number"><span class="field-number-led"></span><span data-i18n="field.kicker"></span></p>
+          <h1 id="hero-title">COLOR<span class="field-outline">/</span><br>ATLAS<span class="field-cursor">_</span></h1>
+          <p class="field-headline" data-i18n="field.headline"></p>
+          <p class="field-description" data-i18n="field.description"></p>
+          <div class="field-actions"><a class="field-enter" href="#studio"><span data-i18n="field.enter"></span><svg class="icon"><use href="#i-arrow"/></svg></a><a class="field-text-link" href="#collection"><span data-i18n="field.collection"></span><span>↗</span></a></div>
+        </div>
+        <div class="field-readout"><span class="field-readout-line"></span><span class="field-readout-number" id="fieldIndex">01</span><span class="field-readout-label" id="fieldLabel"></span><span class="field-readout-small"><span data-i18n="field.liveTag"></span> <span class="field-readout-dot"></span></span></div>
+      </div>
+      <div class="field-bottom">
+        <div class="field-control"><span class="field-control-title" data-i18n="field.modes"></span><div class="field-modes" id="fieldModes" role="group" data-i18n-aria-label="field.modes"></div></div>
+        <div class="field-picks"><span class="field-picks-title" data-i18n="field.pick"></span><div class="field-samples" id="fieldSamples"></div></div>
+        <a class="field-scroll" href="#studio"><span data-i18n="field.scroll"></span><span class="field-scroll-arrow">↓</span></a>
+      </div>
+      <div class="field-scroll-meter" aria-hidden="true"><span id="fieldProgress"></span></div>
+    </section>
+    <nav class="field-jump" aria-label="快速前往色彩工具" data-i18n-aria-label="landing.quickAria"><a href="#studio"><span>01 /</span><span data-i18n="landing.quickPalette"></span><span>↗</span></a><a href="#screenPick"><span>02 /</span><span data-i18n="landing.quickEye"></span><span>↗</span></a><a href="#uploadTrigger"><span>03 /</span><span data-i18n="landing.quickImage"></span><span>↗</span></a><a href="#collection"><span>04 /</span><span data-i18n="landing.quickGallery"></span><span>↗</span></a></nav>
+    <section class="studio-section section-shell" id="studio" aria-labelledby="studio-title">
+      <div class="section-head"><div><div class="kicker" data-i18n="studio.kicker"></div><h2 id="studio-title"><span data-i18n="studio.title1"></span> <span class="section-accent" data-i18n="studio.title2"></span></h2><p id="studioIntro">選擇起點，保留你喜歡的顏色，探索六種不同的搭配方向。</p></div></div>
+      <div class="studio-layout">
+        <div class="seed-panel">
+          <div class="panel-top"><span class="panel-index" data-i18n="studio.inputLabel"></span><span class="panel-step" data-i18n="studio.step"></span></div>
+          <h3><span data-i18n="studio.question1"></span><br><span data-i18n="studio.question2"></span></h3>
+          <p class="panel-lead" data-i18n="studio.lead"></p>
+          <div class="input-heading" data-i18n="studio.hex"></div>
+          <form id="hexForm" class="hex-form" novalidate><input id="hexInput" type="text" spellcheck="false" inputmode="text" maxlength="7" aria-label="輸入 HEX 色碼" data-i18n-aria-label="studio.hexAria"><button type="submit" title="加入顏色" data-i18n-title="studio.addAria" aria-label="加入顏色" data-i18n-aria-label="studio.addAria"><svg class="icon"><use href="#i-plus"/></svg></button><input id="nativeColor" type="color" aria-label="從色彩選擇器挑選顏色" data-i18n-aria-label="studio.pickerAria" title="開啟顏色選擇器" data-i18n-title="studio.pickerAria"></form>
+          <div class="input-heading input-heading-spaced" data-i18n="studio.capture"></div>
+          <div class="source-actions"><button type="button" class="source-button" id="screenPick"><svg class="icon"><use href="#i-pipette"/></svg><span><span data-i18n="studio.eyedropper"></span><small data-i18n="studio.eyedropperDesc"></small></span><span class="source-arrow">↗</span></button><button type="button" class="source-button" id="uploadTrigger"><svg class="icon"><use href="#i-image"/></svg><span><span data-i18n="studio.image"></span><small data-i18n="studio.imageDesc"></small></span><span class="source-arrow">↗</span></button></div>
+          <input type="file" id="imageInput" accept="image/*" hidden>
+          <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="拖放圖片或選擇圖片" data-i18n-aria-label="studio.dropAria"><span data-i18n="studio.dropStart"></span> <kbd>Ctrl</kbd> + <kbd>V</kbd> <span data-i18n="studio.dropEnd"></span></div>
+          <div class="image-result" id="imageResult" hidden><img id="imagePreview" alt="剛加入的圖片縮圖" data-i18n-alt="studio.imageAlt"><div class="image-result-text"><strong data-i18n="studio.imageResult"></strong><small id="imageMeta"></small></div><div class="extracted-colors" id="extractedColors"></div><button type="button" class="subtle-action" id="useExtracted"> <span data-i18n="studio.useExtracted"></span> <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+          <div class="panel-divider"></div>
+          <div class="seed-head"><span class="input-heading"><span data-i18n="studio.selected"></span> <span id="seedCount" class="count-chip">0</span></span><button type="button" class="ghost-text" id="clearSeeds" data-i18n="studio.clear"></button></div>
+          <div class="seed-list" id="seedList" aria-live="polite"></div>
+          <div class="panel-divider"></div>
+          <div class="fidelity-control"><label for="colorFidelity" class="input-heading fidelity-label"><span data-i18n="studio.fidelity"></span> <output id="fidelityValue" for="colorFidelity"></output></label><input id="colorFidelity" type="range" step="1" aria-label="指定色保留度，100% 完全維持原始 HEX，50% 允許最大微調" data-i18n-aria-label="studio.fidelityAria"><div class="range-labels"><span data-i18n="studio.flexible"></span><span data-i18n="studio.exact"></span></div><p class="fidelity-hint" id="fidelityHint">允許小幅微調指定色，提高整組搭配的協調性。</p></div>
+          <label for="paletteSize" class="input-heading size-label"><span data-i18n="studio.paletteSize"></span> <span id="sizeValue">5 色</span></label><input id="paletteSize" type="range" step="1" aria-label="每組色盤包含幾個顏色" data-i18n-aria-label="studio.paletteSizeAria"><div class="range-labels"><span id="paletteSizeMin"></span><span id="paletteSizeMax"></span></div>
+          <button type="button" class="button button-dark generate-button" id="generate"><svg class="icon"><use href="#i-spark"/></svg> <span data-i18n="studio.generate"></span> <svg class="icon arrow-end"><use href="#i-arrow"/></svg></button>
+          <p class="inline-status" id="inputStatus" role="status" aria-live="polite">點擊色塊可複製 HEX，× 可移除。</p>
+        </div>
+        <div class="results-panel">
+          <div class="results-header"><div><div class="panel-index" data-i18n="studio.resultsLabel"></div><h3><span data-i18n="studio.result1"></span> <span class="section-accent" data-i18n="studio.result2"></span></h3></div><button type="button" class="icon-action" id="regenerate" title="重新產生推薦" data-i18n-title="studio.regenerate"><svg class="icon"><use href="#i-refresh"/></svg><span data-i18n="studio.regenerate"></span></button></div>
+          <div class="results-helper"><span id="resultsSummary">保留指定的顏色，補上恰到好處的搭配。</span><span class="locked-legend"><span class="legend-dot"></span> <span id="anchorLegend">指定色（可微調）</span></span></div>
+          <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
+          <div class="results-footnote" data-i18n="studio.footnote"></div>
+        </div>
+      </div>
+    </section>
+    <section class="collection-section section-shell" id="collection" aria-labelledby="collection-title">
+      <div class="section-head"><div><div class="kicker" data-i18n="gallery.kicker"></div><h2 id="collection-title"><span data-i18n="gallery.title1"></span> <span class="section-accent" data-i18n="gallery.title2"></span></h2><p id="galleryIntro">八組原創靈感色盤。找到喜歡的，就把它帶進工作台繼續探索。</p></div></div>
+      <div class="gallery-toolbar"><div class="filter-row" id="categoryFilters" role="group" aria-label="依風格篩選色盤" data-i18n-aria-label="gallery.filterAria"></div><label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="gallerySearch" placeholder="搜尋色盤、風格..." data-i18n-placeholder="gallery.search" aria-label="搜尋色盤" data-i18n-aria-label="gallery.searchAria"></label></div>
+      <div class="gallery-grid" id="galleryGrid"></div><p id="galleryEmpty" class="empty-gallery" hidden data-i18n="gallery.noResults"></p>
+    </section>
+    <section class="about-section section-shell" id="about" aria-labelledby="about-title">
+      <div class="about-header">
+        <div class="kicker" data-i18n="about.kicker"></div>
+        <h2 id="about-title"><span data-i18n="about.title1"></span><br><span data-i18n="about.title2"></span> <span class="section-accent" data-i18n="about.title3"></span></h2>
+        <p data-i18n="about.intro"></p>
+        <a href="AGENTS.md" class="rules-link"><span data-i18n="about.rules"></span><svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ol class="about-steps" id="aboutSteps" aria-label="擴充流程" data-i18n-aria-label="about.flowAria"></ol>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand" data-i18n="footer.brand"></div><div><span data-i18n="footer.label"></span> / <span id="siteYear"></span></div><a href="#top" data-i18n="footer.back"></a></footer>
+  <dialog class="preview-dialog" id="previewDialog" aria-labelledby="previewTitle"><div class="dialog-top"><div><div class="kicker" data-i18n="preview.kicker"></div><h2 id="previewTitle" data-i18n="preview.title"></h2></div><button type="button" class="dialog-close" id="closePreview" aria-label="關閉預覽" data-i18n-aria-label="preview.close"><svg class="icon"><use href="#i-x"/></svg></button></div><div class="preview-mode" role="group" aria-label="預覽類型" data-i18n-aria-label="preview.modeAria"><button type="button" class="active" data-preview-mode="ui"> <span data-i18n="preview.ui"></span></button><button type="button" data-preview-mode="poster"> <span data-i18n="preview.poster"></span></button></div><div class="preview-stage" id="previewStage"></div><div class="dialog-footer"><div id="previewHexes" class="preview-hexes"></div><button type="button" class="button button-dark" id="copyPreview"> <span data-i18n="preview.copy"></span> <svg class="icon"><use href="#i-copy"/></svg></button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
